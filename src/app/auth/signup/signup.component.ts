@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   register() {
     const user = {name: 'Dylan Boyer', email: 'test@test.com', password: 'test974', password_confirmation: 'test974'};
     console.log('register', user);
-    this.authService.registerUser(user);
+    this.authService.register(user);
   }
 
 }
