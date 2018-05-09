@@ -1,0 +1,9 @@
+<div *ngIf="gallerie">
+    <h1>{{gallerie.name}}</h1>
+    <p>
+      {{gallerie.description}}
+    </p>
+  <ul *ngFor="let photo of gallerie.photos">
+    <li>{{photo.name}}</li>
+  </ul>  
+</div>

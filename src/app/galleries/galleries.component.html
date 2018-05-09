@@ -3,5 +3,5 @@
 </p>
 <button (click)="getOneGallerie()">Get One</button>
 <ul *ngFor="let gallerie of galleriesList">
-  <li>{{gallerie.name}}</li>
+  <li><a routerLink="/galleries/{{gallerie.id}}">{{gallerie.name}}</a></li>
 </ul>

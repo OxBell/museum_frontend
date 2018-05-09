@@ -11,6 +11,8 @@ import { AuthService } from './auth/auth.service';
 import { Http, Response, RequestOptions, Headers, HttpModule } from '@angular/http';
 import { GalleriesComponent } from './galleries/galleries.component';
 import { GalleriesService } from './galleries/galleries.service';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { GallerieComponent } from './galleries/gallerie/gallerie.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { GalleriesService } from './galleries/galleries.service';
     WelcomeComponent,
     SignupComponent,
     LoginComponent,
-    GalleriesComponent
+    GalleriesComponent,
+    NotFoundComponent,
+    GallerieComponent
   ],
   imports: [
     BrowserModule,

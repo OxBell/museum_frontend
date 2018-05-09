@@ -19,7 +19,7 @@ export class GalleriesService {
 
     get(id) {
         const url = this.apiUrl + `/galleries/` + id;
-        this.http.get(url).subscribe(res => console.log(res.json()));
+        return this.http.get(url);
     }
 
 }
