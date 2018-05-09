@@ -13,7 +13,7 @@ export class GallerieComponent implements OnInit {
 
   private gallerieObs$: Observable<any>;
   private gallerie;
-
+  private isLoading = true;
   constructor(
     private galleriesService: GalleriesService,
     private route: ActivatedRoute
@@ -24,6 +24,7 @@ export class GallerieComponent implements OnInit {
       this.gallerieObs$ = this.galleriesService.get(params['id']);
       this.gallerieObs$.subscribe( res => {
         this.gallerie = res.json();
+        this.isLoading = false;
       });
     });
   }

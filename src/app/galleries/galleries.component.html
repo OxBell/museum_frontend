@@ -1,7 +1,8 @@
-<p>
-  galleries works!
-</p>
-<button (click)="getOneGallerie()">Get One</button>
-<ul *ngFor="let gallerie of galleriesList">
-  <li><a routerLink="/galleries/{{gallerie.id}}">{{gallerie.name}}</a></li>
-</ul>
+<div *ngIf="isLoading">
+  Is Loading
+</div>
+<div *ngIf="!isLoading">
+  <ul *ngFor="let gallerie of galleriesList">
+    <li><a routerLink="/galleries/{{gallerie.id}}">{{gallerie.name}}</a></li>
+  </ul>
+</div>

@@ -1,4 +1,4 @@
-<div *ngIf="gallerie">
+<div *ngIf="gallerie && !isLoading">
     <h1>{{gallerie.name}}</h1>
     <p>
       {{gallerie.description}}
@@ -6,4 +6,7 @@
   <ul *ngFor="let photo of gallerie.photos">
     <li>{{photo.name}}</li>
   </ul>  
+</div>
+<div *ngIf="!gallerie && isLoading">
+  Is Loading
 </div>

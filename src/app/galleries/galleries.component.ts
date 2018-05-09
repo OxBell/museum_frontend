@@ -11,6 +11,7 @@ export class GalleriesComponent implements OnInit {
 
   private galleriesObs$: Observable<any>;
   galleriesList;
+  private isLoading = true;
 
   constructor(
     private galleriesService: GalleriesService
@@ -20,6 +21,7 @@ export class GalleriesComponent implements OnInit {
     this.galleriesObs$ = this.galleriesService.getAll();
     this.galleriesObs$.subscribe( res => {
       this.galleriesList = res.json();
+      this.isLoading = false;
     });
   }
 
