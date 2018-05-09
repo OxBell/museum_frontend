@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     const user = {email: 'test@test.com', password: 'test974'};
-    console.log('register', user);
     this.authService.login(user);
   }
 

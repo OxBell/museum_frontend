@@ -9,6 +9,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthService } from './auth/auth.service';
 import { Http, Response, RequestOptions, Headers, HttpModule } from '@angular/http';
+import { GalleriesComponent } from './galleries/galleries.component';
+import { GalleriesService } from './galleries/galleries.service';
 
 
 @NgModule({
@@ -16,14 +18,15 @@ import { Http, Response, RequestOptions, Headers, HttpModule } from '@angular/ht
     AppComponent,
     WelcomeComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    GalleriesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, GalleriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
