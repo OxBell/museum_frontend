@@ -1,4 +1,33 @@
-<p>
-  signup works!
-</p>
-<button (click)="register()">Register</button>
+<form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <!-- NAME -->
+  <div>
+    <input type="text" placeholder="your name" ngModel name="name" required #nameInput="ngModel">
+    <!-- <p *ngIf="nameInput.hasError('required')" class="error">The field is required.</p> -->
+  </div>
+  
+  <!-- EMAIL -->
+  <div>
+    <input type="email" placeholder="your email" ngModel name="email" email required #emailInput="ngModel">
+    <!-- <p *ngIf="emailInput.hasError('required')" class="error">The field is required.</p> -->
+    <p class="error"></p>
+  </div>
+  <!-- PASSWORD -->
+  <div>
+    <input type="password" placeholder="your password" ngModel name="password" required minlength="6" #pwdInput="ngModel">
+    <!-- <p *ngIf="pwdInput.hasError('required')" class="error">The field is required.</p> -->
+    <p class="error"></p>
+  </div>
+
+  <!-- CONFIRM PASSWORD -->
+  <div>
+    <input type="password" placeholder="confirm your password" ngModel name="conf_password" required minlength="6" #confPwdInput="ngModel">
+    <!-- <p *ngIf="confPwdInput.hasError('required')" class="error">The field is required.</p> -->
+    <p class="error"></p>
+    <p class="error"></p>
+  </div>
+  
+  <!-- SUBMIT -->
+  <button type="submit" [disabled]="!f.valid || (pwdInput.value != confPwdInput.value)">Register</button>
+</form>
+
+

@@ -23,10 +23,8 @@ export class GalleriesService {
     }
 
     addOne(gallerie) {
-        console.log('add gallerie service', gallerie);
         const url = this.apiUrl + `/galleries`;
         return this.http.post(url, gallerie).subscribe(res => {
-            console.log(res.json());
             return this.getAll();
         });
     }

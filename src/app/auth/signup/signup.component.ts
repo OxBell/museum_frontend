@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { AuthService } from '../auth.service';
 import { User } from '../user.model';
 
@@ -18,6 +20,17 @@ export class SignupComponent implements OnInit {
 
   register() {
     const user = {name: 'Dylan Boyer', email: 'test@test.com', password: 'test974', password_confirmation: 'test974'};
+    this.authService.register(user);
+  }
+
+  onSubmit(form: NgForm) {
+    const user = {
+      name: form.value.name,
+      email: form.value.email,
+      password: form.value.password,
+      password_confirmation: form.value.conf_password
+    };
+    console.log(user);
     this.authService.register(user);
   }
 
