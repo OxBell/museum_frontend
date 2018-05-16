@@ -16,6 +16,8 @@ export class AuthService {
             if (res) {
                 this.router.navigate(['/']);
             }
+        }, err => {
+            console.log(err);
         });
     }
 
@@ -25,6 +27,8 @@ export class AuthService {
             if (res) {
                 this.router.navigate(['/']);
             }
+        }, err => {
+            console.log(err);
         });
     }
 

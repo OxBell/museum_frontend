@@ -50,6 +50,8 @@ export class GalleriesComponent implements OnInit {
       this.isLoading = true;
       this.hideAddForm();
       this.getAllGaleries();
+    }, err => {
+      console.log(err);
     });
   }
 

@@ -14,6 +14,8 @@ export class GallerieComponent implements OnInit {
   private gallerieObs$: Observable<any>;
   private gallerie;
   private isLoading = true;
+  private found = false;
+
   constructor(
     private router: Router,
     private galleriesService: GalleriesService,
@@ -24,12 +26,12 @@ export class GallerieComponent implements OnInit {
     this.route.params.subscribe( params => {
       this.gallerieObs$ = this.galleriesService.get(params['id']);
       this.gallerieObs$.subscribe( res => {
-        if (res) {
-          this.gallerie = res.json();
-          this.isLoading = false;
-        } else {
-          this.router.navigate(['/**']);
-        }
+        this.gallerie = res.json();
+        this.isLoading = false;
+        this.found = true;
+      }, err => {
+        console.log(err);
+        this.isLoading = false;
       });
     });
   }
