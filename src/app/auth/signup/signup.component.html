@@ -9,21 +9,21 @@
   <div>
     <input type="email" placeholder="your email" ngModel name="email" email required #emailInput="ngModel">
     <!-- <p *ngIf="emailInput.hasError('required')" class="error">The field is required.</p> -->
-    <p class="error"></p>
+    <!-- <p class="error"></p> -->
   </div>
   <!-- PASSWORD -->
   <div>
     <input type="password" placeholder="your password" ngModel name="password" required minlength="6" #pwdInput="ngModel">
     <!-- <p *ngIf="pwdInput.hasError('required')" class="error">The field is required.</p> -->
-    <p class="error"></p>
+    <p *ngIf="pwdInput.value?.length > 0 && pwdInput.value?.length < 6" class="error">Must be at least 6 characters long.</p>
   </div>
 
   <!-- CONFIRM PASSWORD -->
   <div>
     <input type="password" placeholder="confirm your password" ngModel name="conf_password" required minlength="6" #confPwdInput="ngModel">
     <!-- <p *ngIf="confPwdInput.hasError('required')" class="error">The field is required.</p> -->
-    <p class="error"></p>
-    <p class="error"></p>
+    <p *ngIf="confPwdInput.value?.length > 0 && confPwdInput.value?.length < 6" class="error">Must be at least 6 characters long.</p>
+    <p *ngIf="(pwdInput.value?.length > 0 && confPwdInput.value?.length > 0) && confPwdInput.value != pwdInput.value" class="error">Passwords should be the same.</p>
   </div>
   
   <!-- SUBMIT -->

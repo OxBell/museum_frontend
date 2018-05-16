@@ -10,10 +10,6 @@ export class GalleriesService {
 
     getAll() {
         const url = this.apiUrl + `/galleries`;
-        // this.http.get(url).subscribe(res => {
-        //     console.log(res.json());
-        //     this.galleries = res.json();
-        // });
         return this.http.get(url);
     }
 
@@ -24,9 +20,7 @@ export class GalleriesService {
 
     addOne(gallerie) {
         const url = this.apiUrl + `/galleries`;
-        return this.http.post(url, gallerie).subscribe(res => {
-            return this.getAll();
-        });
+        return this.http.post(url, gallerie);
     }
 
 }

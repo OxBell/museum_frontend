@@ -30,7 +30,6 @@ export class SignupComponent implements OnInit {
       password: form.value.password,
       password_confirmation: form.value.conf_password
     };
-    console.log(user);
     this.authService.register(user);
   }
 

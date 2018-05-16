@@ -5,5 +5,5 @@
   <ul *ngFor="let gallerie of galleriesList">
     <li><a routerLink="/galleries/{{gallerie.id}}">{{gallerie.name}}</a></li>
   </ul>
+  <button (click)="addGallerie()">Add gallerie</button>
 </div>
-<button (click)="addGallerie()">Add gallerie</button>

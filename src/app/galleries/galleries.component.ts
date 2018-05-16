@@ -34,10 +34,12 @@ export class GalleriesComponent implements OnInit {
   }
 
   addGallerie() {
-    const gallerie = {user_id: 11, name: 'gallerie test 6', description: 'description test gallerie 6',
-    api_token: 'Gc9upKk2jvtgGSwQiAzvX6i4fmVNsPMNDbX8Gtirp6Tm6our4lh4l7sGM6rD'};
-    this.galleriesService.addOne(gallerie);
-    this.getAllGaleries();
+    const gallerie = {user_id: 14, name: 'gallerie test1', description: 'description test gallerie 1',
+    api_token: 'lDB0cSAW83LqB49MmmP3m2QVeQOGDZxgR0GRp0MX7hXQkRZsmbXEg57L3kIo'};
+    this.galleriesService.addOne(gallerie).subscribe( res => {
+      this.isLoading = true;
+      this.getAllGaleries();
+    });
   }
 
 }
