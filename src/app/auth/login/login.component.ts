@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { AuthService } from '../auth.service';
 import { User } from '../user.model';
 
@@ -16,8 +18,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login() {
-    const user = {email: 'test@test.com', password: 'test974'};
+  onSubmit(form: NgForm) {
+    const user = {
+      email: form.value.email,
+      password: form.value.password,
+    };
     this.authService.login(user);
   }
 

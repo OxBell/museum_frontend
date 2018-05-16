@@ -5,5 +5,25 @@
   <ul *ngFor="let gallerie of galleriesList">
     <li><a routerLink="/galleries/{{gallerie.id}}">{{gallerie.name}}</a></li>
   </ul>
-  <button (click)="addGallerie()">Add gallerie</button>
+  <button *ngIf="!showForm" (click)="showAddForm()">Add gallerie</button>
+  <div *ngIf="showForm" class="form">
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <!-- NAME -->
+      <div>
+        <input type="text" placeholder="gallerie name" ngModel name="name" required #nameInput="ngModel">
+        <!-- <p *ngIf="nameInput.hasError('required')" class="error">The field is required.</p> -->
+      </div>
+      
+      <!-- EMAIL -->
+      <div>
+        <input type="text" placeholder="gallerie description" ngModel name="description" required #descriptionInput="ngModel">
+        <!-- <p *ngIf="emailInput.hasError('required')" class="error">The field is required.</p> -->
+        <!-- <p class="error"></p> -->
+      </div>
+      
+      <!-- SUBMIT -->
+      <button type="submit" [disabled]="!f.valid">Add Gallerie</button>
+      <button type="button" (click)="hideAddForm()">Cancel</button>
+    </form>
+  </div>
 </div>

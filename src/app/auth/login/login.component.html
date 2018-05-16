@@ -1,4 +1,20 @@
-<p>
-  login works!
-</p>
-<button (click)="login()">Login</button>
+<form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <!-- EMAIL -->
+  <div>
+    <input type="email" placeholder="your email" ngModel name="email" email required #emailInput="ngModel">
+    <!-- <p *ngIf="emailInput.hasError('required')" class="error">The field is required.</p> -->
+    <!-- <p class="error"></p> -->
+  </div>
+  <!-- PASSWORD -->
+  <div>
+    <input type="password" placeholder="your password" ngModel name="password" required minlength="6" #pwdInput="ngModel">
+    <!-- <p *ngIf="pwdInput.hasError('required')" class="error">The field is required.</p> -->
+    <p *ngIf="pwdInput.value?.length > 0 && pwdInput.value?.length < 6" class="error">Must be at least 6 characters long.</p>
+  </div>
+
+  
+  <!-- SUBMIT -->
+  <button type="submit" [disabled]="!f.valid">Login</button>
+</form>
+
+

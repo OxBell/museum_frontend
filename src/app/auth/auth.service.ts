@@ -13,7 +13,6 @@ export class AuthService {
     register(user: User) {
         const url = this.apiUrl + `/register`;
         this.http.post(url, user).subscribe(res => {
-            console.log('res', res);
             if (res) {
                 this.router.navigate(['/']);
             }
@@ -23,7 +22,6 @@ export class AuthService {
     login(user) {
         const url = this.apiUrl + `/login`;
         this.http.post(url, user).subscribe(res => {
-            console.log('res', res);
             if (res) {
                 this.router.navigate(['/']);
             }
